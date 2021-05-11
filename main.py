@@ -28,19 +28,26 @@ async def on_message(message):
     if message.content.startswith('!asl calc'):
         msg = message.content
         msg = msg[10:]  # removes '!asl calc' from the beginning of the string.
-        raw_users_artifacts = msg.split(sep=",")  # list of users artefacts to be calculated.
-        users_artifacts = []  # Empty list for artefact string in usable format after being striped of whitespace.
+        # list of users artefacts to be calculated.
+        raw_users_artifacts = msg.split(sep=",")
+        # Empty list for artefact string in usable format after being striped of whitespace.
+        users_artifacts = []
 
         # Strips the whitespace from each element in raw_users_artefacts. Appends to new list (users_artefacts).
         for users_artifact in raw_users_artifacts:
             users_artifacts.append(users_artifact.strip())
 
         for artefact in users_artifacts:
-            quantity = re.search('[0-9]+', artefact)  # Uses regex to get quantity from start of string.
-            quantity = int(quantity.group(0))  # Converts match type to integer.
-            new_artefact = re.search('\D+.+', artefact)  # Uses regex to remove leading numbers from the string.
-            new_artefact = new_artefact.group(0)  # Converts Type:match to Type:string.
-            new_artefact = new_artefact.strip()  # Strips any leading/trailing whitespace.
+            # Uses regex to get quantity from start of string.
+            quantity = re.search('[0-9]+', artefact)
+            # Converts match type to integer.
+            quantity = int(quantity.group(0))
+            # Uses regex to remove leading numbers from the string.
+            new_artefact = re.search('\D+.+', artefact)
+            # Converts Type:match to Type:string.
+            new_artefact = new_artefact.group(0)
+            # Strips any leading/trailing whitespace.
+            new_artefact = new_artefact.strip()
 
             if new_artefact not in artefact_list.artefacts:
                 # Resets all materials back to 0 in prep for new calculation.
@@ -53,8 +60,10 @@ async def on_message(message):
                                            f"must be the same as on the items text.")
                 break
 
-            if new_artefact in artefact_list.artefacts:  # Check to see if remaining string is in the artefact list.
-                artefact_list.artefact_calc(quantity, new_artefact)  # Runs the calculator function
+            # Check to see if remaining string is in the artefact list.
+            if new_artefact in artefact_list.artefacts:
+                # Runs the calculator function
+                artefact_list.artefact_calc(quantity, new_artefact)
 
         shopping_list = "You will need to buy:\n"
 
@@ -63,7 +72,8 @@ async def on_message(message):
 
             # If the material in the dictionary is not 0 it will add the material and quantity to the shopping list
             if artefact_list.materials_dict[material] != 0:
-                shopping_list = shopping_list + f"{artefact_list.materials_dict[material]} {material}\n"
+                shopping_list = shopping_list + \
+                    f"{artefact_list.materials_dict[material]} {material}\n"
 
         # Sends the shopping list to the channel in discord.
         await message.channel.send(shopping_list)

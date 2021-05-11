@@ -244,54 +244,21 @@ materials_dict = {
     "Tetracompass piece (needle)": 0
 }
 
+artefact_dict = {
+    "'Animate Dead' spell scroll": {"Vellum": 40, "Ancient vis": 24, "Blood of Orcus": 40},
+    "'Consensus ad Idem' painting": {"White oak": 10, "Samite silk": 10, "Tyrian purple": 50},
+    "'Da Boss Man' sculpture": {"Yu'biusk clay": 50, "Malachite green": 44, "Soapstone": 44},
+    "'Disorder' painting": {"Samite silk": 6, "White oak": 6, "Vellum": 6, "Cadmium red": 14},
+    "'Exsanguinate' spell scroll": {"Vellum": 40, "Blood of Orcus": 36},
+    "'Forged in War' sculpture": {"Warforged bronze": 50, "Yu'biusk clay": 42, "Emerald": 1},
+    "'Frying pan'": {"Third Age iron": 20, "White marble": 20},
+    "'Hallowed Be the Everlight' painting": {"Cobalt blue": 52, "White oak": 16, "Samite silk": 16, "Vellum": 16},
+    "'Incite Fear' spell scroll": {"Vellum": 20, "Ancient vis": 18, "Blood of Orcus": 18},
+    "'Lust' metal sculpture": {"Third Age iron": 16, "Eye of Dagon": 24, "Goldrune": 24, "Ruby": 1}
 
-def artefact_calc(quantity, artefact):
-    if artefact == "'Animate Dead' spell scroll":
-        materials_dict["Vellum"] += (quantity * 40)
-        materials_dict["Ancient vis"] += (quantity * 24)
-        materials_dict["Blood of Orcus"] += (quantity * 40)
+}
 
-    elif artefact == "'Consensus ad Idem' painting":
-        materials_dict["White oak"] += (quantity * 10)
-        materials_dict["Samite silk"] += (quantity * 10)
-        materials_dict["Tyrian purple"] += (quantity * 50)
-
-    elif artefact == "'Da Boss Man' sculpture":
-        materials_dict["Yu'biusk clay"] += (quantity * 50)
-        materials_dict["Malachite green"] += (quantity * 44)
-        materials_dict["Soapstone"] += (quantity * 44)
-
-    elif artefact == "'Disorder' painting":
-        materials_dict["Samite silk"] += (quantity * 6)
-        materials_dict["White oak"] += (quantity * 6)
-        materials_dict["Vellum"] += (quantity * 6)
-        materials_dict["Cadmium red"] += (quantity * 14)
-
-    elif artefact == "'Exsanguinate' spell scroll":
-        materials_dict["Vellum"] += (quantity * 40)
-        materials_dict["Blood of Orcus"] += (quantity * 36)
-
-    elif artefact == "Forged in War' sculpture":
-        materials_dict["Warforged bronze"] += (quantity * 50)
-        materials_dict["Yu'biusk clay"] += (quantity * 42)
-        materials_dict["Emerald"] += (quantity * 1)
-
-    elif artefact == "'Frying pan'":
-        materials_dict["Third Age iron"] += (quantity * 20)
-        materials_dict["White marble"] += (quantity * 20)
-
-    elif artefact == "'Hallowed Be the Everlight' painting":
-        materials_dict["Cobalt blue"] += (quantity * 52)
-        materials_dict["White oak"] += (quantity * 16)
-        materials_dict["Samite silk"] += (quantity * 16)
-        materials_dict["Vellum"] += (quantity * 16)
-
-    elif artefact == "'Incite Fear' spell scroll":
-        materials_dict["Vellum"] += (quantity * 20)
-        materials_dict["Ancient vis"] += (quantity * 18)
-        materials_dict["Blood of Orcus"] += (quantity * 18)
-
-    elif artefact == "'Lust' metal sculpture":
+    elif artefact == "":
         materials_dict["Third Age iron"] += (quantity * 16)
         materials_dict["Eye of Dagon"] += (quantity * 24)
         materials_dict["Goldrune"] += (quantity * 24)
