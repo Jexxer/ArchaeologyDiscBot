@@ -254,20 +254,10 @@ artefact_dict = {
     "'Frying pan'": {"Third Age iron": 20, "White marble": 20},
     "'Hallowed Be the Everlight' painting": {"Cobalt blue": 52, "White oak": 16, "Samite silk": 16, "Vellum": 16},
     "'Incite Fear' spell scroll": {"Vellum": 20, "Ancient vis": 18, "Blood of Orcus": 18},
-    "'Lust' metal sculpture": {"Third Age iron": 16, "Eye of Dagon": 24, "Goldrune": 24, "Ruby": 1}
+    "'Lust' metal sculpture": {"Third Age iron": 16, "Eye of Dagon": 24, "Goldrune": 24, "Ruby": 1},
+    "'Nosorog!' sculpture": {"Yu'biusk clay": 30, "Malachite green": 24, "Warforged bronze": 30},
 
 }
-
-    elif artefact == "":
-        materials_dict["Third Age iron"] += (quantity * 16)
-        materials_dict["Eye of Dagon"] += (quantity * 24)
-        materials_dict["Goldrune"] += (quantity * 24)
-        materials_dict["Ruby"] += (quantity * 1)
-
-    elif artefact == "'Nosorog!' sculpture":
-        materials_dict["Yu'biusk clay"] += (quantity * 30)
-        materials_dict["Malachite green"] += (quantity * 24)
-        materials_dict["Warforged bronze"] += (quantity * 30)
 
     elif artefact == "'Pandemonium' tapestry":
         materials_dict["White oak"] += (quantity * 12)
