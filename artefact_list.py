@@ -256,15 +256,9 @@ artefact_dict = {
     "'Incite Fear' spell scroll": {"Vellum": 20, "Ancient vis": 18, "Blood of Orcus": 18},
     "'Lust' metal sculpture": {"Third Age iron": 16, "Eye of Dagon": 24, "Goldrune": 24, "Ruby": 1},
     "'Nosorog!' sculpture": {"Yu'biusk clay": 30, "Malachite green": 24, "Warforged bronze": 30},
+    "'Pandemonium' tapestry": {"White oak": 12, "Samite silk": 12, "Vellum": 12, "Cadmium red": 42},
 
 }
-
-    elif artefact == "'Pandemonium' tapestry":
-        materials_dict["White oak"] += (quantity * 12)
-        materials_dict["Samite silk"] += (quantity * 12)
-        materials_dict["Vellum"] += (quantity * 12)
-        materials_dict["Cadmium red"] += (quantity * 42)
-
     elif artefact == "'Possession' metal sculpture":
         materials_dict["Eye of Dagon"] += (quantity * 24)
         materials_dict["Chaotic brimstone"] += (quantity * 30)
