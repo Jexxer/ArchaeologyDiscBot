@@ -9,8 +9,8 @@ This bot only has two commands right now.
 - help - Will return a message to the user with description of how to use the bot.
 
 ## In progress
-- Cleaning up the HUGE elif block in artefact_list.py to an item dictionary.
+- ~~Cleaning up the HUGE elif block in artefact_list.py to an item dictionary.~~
+- Calculate the amount of experience that will be gained.
 
 ## To do:
-- Calculate the amount of experience that will be gained.
 - Calculate the cost of materials
