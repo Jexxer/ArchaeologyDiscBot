@@ -1,3 +1,11 @@
+p1 = 10
+p2 = "Battle plans"
+
+def artefact_calc(quantity, artefact):
+    for key in artefact_dict[artefact]:
+        materials_dict[key] += (artefact_dict[artefact][key] * quantity)
+
+
 artefacts = [
     "'Animate Dead' spell scroll",
     "'Consensus ad Idem' painting",
@@ -257,803 +265,180 @@ artefact_dict = {
     "'Lust' metal sculpture": {"Third Age iron": 16, "Eye of Dagon": 24, "Goldrune": 24, "Ruby": 1},
     "'Nosorog!' sculpture": {"Yu'biusk clay": 30, "Malachite green": 24, "Warforged bronze": 30},
     "'Pandemonium' tapestry": {"White oak": 12, "Samite silk": 12, "Vellum": 12, "Cadmium red": 42},
-
+    "'Possession' metal sculpture": {"Eye of Dagon": 24, "Chaotic brimstone": 30, "Third Age iron": 44},
+    "'Prima Legio' painting": {"White oak": 20, "Samite silk": 20, "Tyrian purple": 74, "Zarosian insignia": 20},
+    "'Raksha' idol": {"Orgone": 56, "Dragon metal": 44, "Goldrune": 40},
+    "'Smoke Cloud' spell scroll": {"Vellum": 40, "Ancient vis": 20, "Blood of Orcus": 32},
+    "'Solem in Umbra' painting": {"Samite silk": 8, "White oak": 10},
+    "'The Enlightened Soul' scroll": {"Star of Saradomin": 50, "Vellum": 60},
+    "'The Eudoxian Elements' tablet": {"White marble": 60, "Goldrune": 50},
+    "'The Lake of Fire' painting": {"Samite silk": 10, "White oak": 10, "Vellum": 10, "Cadmium red": 34},
+    "'The Lord of Light' painting": {"Cobalt blue": 52, "White oak": 16, "Samite silk": 16, "Vellum": 16},
+    "'The Pride of Padosan' painting": {"Cobalt blue": 52, "White oak": 16, "Samite silk": 16, "Vellum": 16},
+    "'Torment' metal sculpture": {"Eye of Dagon": 20, "Third Age iron": 20, "Hellfire metal": 38},
+    "Amphora": {"Everlight silvthril": 34, "Keramos": 46},
+    "Ancient globe": {"White oak": 20, "Tyrian purple": 54, "Ancient vis": 60},
+    "Ancient magic tablet": {"Ancient vis": 40, "Blood of Orcus": 64},
+    "Ancient timepiece": {"Goldrune": 12, "Imperial steel": 16, "Ancient vis": 18},
+    "Avian song-egg player": {"Stormguard steel": 36, "Armadylean yellow": 32, "Diamond": 1},
+    "Aviansie dreamcoat": {"Armadylean yellow": 20, "Samite silk": 30, "Animal furs": 22},
+    "Battle plans": {"Vellum": 40, "Tyrian purple": 60, "Ancient vis": 34},
+    "Beastkeeper helm": {"Warforged bronze": 16, "Vulcanised rubber": 24, "Animal furs": 20, "Fossilised bone": 24},
+    "Blackfire lance": {"Aetherium alloy": 50, "Quintessence": 46},
+    "Branding iron": {"Third Age iron": 14, "Eye of Dagon": 12, "Hellfire metal": 20},
+    "Bronze Dominion medal": {"Everlight silvthril": 36, "Star of Saradomin": 26, "Bronze bar": 1},
+    "Centurion's dress sword": {"Imperial iron": 5, "Purpleheart wood": 5},
+    "Centurion's seal": {"Third Age iron": 6, "Zarosian insignia": 2},
+    "Ceremonial dragonkin device": {"Orthenglass": 66},
+    "Ceremonial dragonkin tablet": {"Orthenglass": 79},
+    "Ceremonial mace": {"Imperial steel": 20, "Third Age iron": 20, "Goldrune": 28},
+    "Ceremonial plume": {"Armadylean yellow": 38, "Goldrune": 34, "Phoenix feather": 1},
+    "Ceremonial unicorn ornament": {"Keramos": 26, "Cobalt blue": 20},
+    "Ceremonial unicorn saddle": {"Leather scraps": 24, "Cobalt blue": 22},
+    "Chaos Elemental trophy": {"Chaotic brimstone": 52, "White oak": 30, "Hellfire metal": 30},
+    "Chaos star": {"Chaotic brimstone": 28, "Hellfire metal": 36},
+    "Chuluu stone": {"Aetherium alloy": 40, "Quintessence": 30, "Soapstone": 40, "Goldrune": 24},
+    "Crest of Dagon": {"Goldrune": 14, "Orthenglass": 18},
+    "Dayguard shield": {"Stormguard steel": 36, "Wings of War": 28, "White oak": 20},
+    "Death mask": {"Orgone": 56, "Soapstone": 34},
+    "Decorative vase": {"White marble": 36, "Cobalt blue": 30},
+    "Dominarian device": {"Everlight silvthril": 30, "Keramos": 22, "Third Age iron": 22, "Clockwork": 1},
+    "Dominion discus": {"Keramos": 34, "Star of Saradomin": 28},
+    "Dominion javelin": {"Keramos": 32, "Third Age iron": 30},
+    "Dominion pelte shield": {"Star of Saradomin": 34, "Samite silk": 28},
+    "Dominion torch": {"Goldrune": 12, "Orthenglass": 12, "Everlight silvthril": 20, "Star of Saradomin": 18},
+    "Dorgeshuun spear": {"Warforged bronze": 50, "White oak": 42},
+    "Doru spear": {"Everlight silvthril": 70, "White oak": 62},
+    "Dragon burner": {"Dragon metal": 52, "Orgone": 42},
+    "Dragon scalpel": {"Dragon metal": 52, "Felt": 42},
+    "Dragonkin calendar": {"Orgone": 34, "Carbon black": 28, "Compass rose": 28},
+    "Dragonkin staff": {"Orgone": 56, "Compass rose": 34},
+    "Drogokishuun hook sword": {"Warforged bronze": 44, "Malachite green": 36, "Fossilised bone": 32},
+    "Ekeleshuun blinder mask": {"Vulcanised rubber": 24, "Malachite green": 20, "Vellum": 24},
+    "Everlight harp": {"Everlight silvthril": 30, "White oak": 22},
+    "Everlight trumpet": {"Everlight silvthril": 28, "Goldrune": 24},
+    "Everlight violin": {"Star of Saradomin": 16, "White oak": 20, "Samite silk": 16},
+    "Fishing trident": {"Star of Saradomin": 22, "Third Age iron": 30, "Goldrune": 22},
+    "Flat cap": {"Armadylean yellow": 60, "Samite silk": 54},
+    "Folded-arm figurine (female)": {"White marble": 30, "Goldrune": 24},
+    "Folded-arm figurine (male)": {"White marble": 30, "Goldrune": 24},
+    "Garagorshuun anchor": {"Warforged bronze": 32, "Mark of the Kyzaj": 26, "Third Age iron": 30},
+    "Gold dish": {"Goldrune": 86, "Dragon metal": 54},
+    "Golem heart": {"Aetherium alloy": 34, "Quintessence": 24, "Orthenglass": 16, "Soapstone": 16},
+    "Golem instruction": {"Quintessence": 46, "Vellum": 44, "Black mushroom ink": 1},
+    "Greater demon mask": {"Third Age iron": 6, "Leather scraps": 6, "Chaotic brimstone": 8, "Demonhide": 12},
+    "Hallowed lantern": {"Third Age iron": 20, "Keramos": 24, "White candle": 1},
+    "Hawkeye lens multi-vision scope": {"Stormguard steel": 40, "Orthenglass": 34},
+    "Hellfire haladie": {"Hellfire metal": 26, "Third Age iron": 26, "Leather scraps": 20},
+    "Hellfire katar": {"Hellfire metal": 50, "Leather scraps": 40},
+    "Hellfire zaghnal": {"Hellfire metal": 38, "White oak": 26, "Orthenglass": 26},
+    "High priest crozier": {"Mark of the Kyzaj": 26, "Malachite green": 24, "Goldrune": 28},
+    "High priest mitre": {"Mark of the Kyzaj": 26, "Malachite green": 24, "Samite silk": 28},
+    "High priest orb": {"Mark of the Kyzaj": 26, "Malachite green": 24, "Goldrune": 28},
+    "Hobgoblin mansticker": {"Warforged bronze": 66, "Fossilised bone": 46},
+    "Hookah pipe": {"Third Age iron": 10, "Goldrune": 12, "Orthenglass": 8},
+    "Horogothgar cooking pot": {"Yu'biusk clay": 60, "Malachite green": 38, "Soapstone": 40},
+    "Huzamogaarb chaos crown": {"Warforged bronze": 44, "Third Age iron": 34, "Eye of Dagon": 20},
+    "Idithuun horn ring": {"Yu'biusk clay": 40, "Vulcanised rubber": 44},
+    "Ikovian gerege": {"Third Age iron": 36, "Wings of War": 30},
+    "Imp mask": {"Leather scraps": 10, "Chaotic brimstone": 10, "Demonhide": 12},
+    "Kal-i-kra chieftain crown": {"Yu'biusk clay": 66, "Animal furs": 60},
+    "Kal-i-kra mace": {"Vulcanised rubber": 42, "Third Age iron": 44, "Fossilised bone": 40},
+    "Kal-i-kra warhorn": {"Vulcanised rubber": 44, "Fossilised bone": 42, "Animal furs": 40},
+    "Kantharos cup": {"Everlight silvthril": 30, "Orthenglass": 36, "Sapphire": 1},
+    "Keshik drum": {"Wings of War": 16, "Animal furs": 16, "White oak": 20, "Leather scraps": 16},
+    "Kilaya": {"Dragon metal": 46, "Compass rose": 40},
+    "Kontos lance": {"Everlight silvthril": 70, "Samite silk": 62},
+    "Kopis dagger": {"Everlight silvthril": 50, "Leather scraps": 42},
+    "Larupia trophy": {"Cadmium red": 18, "Animal furs": 28, "Orthenglass": 26},
+    "Legatus Maximus figurine": {"Goldrune": 8, "Zarosian insignia": 14, "Ancient vis": 10},
+    "Legatus pendant": {"Third Age iron": 16, "Goldrune": 18, "Ancient vis": 12, "Dragonstone": 1},
+    "Legionary gladius": {"Third Age iron": 10, "Zarosian insignia": 6, "Imperial steel": 12},
+    "Legionary square shield": {"Third Age iron": 8, "Zarosian insignia": 8, "Imperial steel": 12},
+    "Lesser demon mask": {"Leather scraps": 6, "Chaotic brimstone": 8, "Demonhide": 12, "Cadmium red": 6},
+    "Lingam stone": {"Orgone": 44, "Carbon black": 30, "Compass rose": 32},
+    "Lion trophy": {"Cadmium red": 18, "Animal furs": 28, "White oak": 26},
+    "Manacles": {"Third Age iron": 14, "Chaotic brimstone": 18, "Eye of Dagon": 14},
+    "Master control": {"Orgone": 30, "Carbon black": 32, "Compass rose": 44},
+    "Meditation pipe": {"Orgone": 60, "Dragon metal": 40},
+    "Morin khuur": {"Armadylean yellow": 36, "White oak": 32},
+    "Narogoshuun 'Hob-da-Gob' ball": {"Vulcanised rubber": 36, "Mark of the Kyzaj": 32},
+    "Necromantic focus": {"Imperial steel": 20, "Blood of Orcus": 26, "Ancient vis": 30},
+    "Night owl flight goggles": {"Armadylean yellow": 44, "Leather scraps": 40, "Orthenglass": 30},
+    "Nightguard shield": {"Stormguard steel": 30, "Wings of War": 36, "White oak": 30},
+    "Ogre Kyzaj axe": {"Warforged bronze": 28, "Mark of the Kyzaj": 20, "Fossilised bone": 24},
+    "Opulent wine goblet": {"Third Age iron": 14, "Goldrune": 16},
+    "Order of Dis robes": {"Samite silk": 16, "Cadmium red": 10, "Eye of Dagon": 14},
+    "Ork cleaver sword": {"Warforged bronze": 36, "Fossilised bone": 36},
+    "Orthenglass flask": {"Dragon metal": 34, "Orthenglass": 60},
+    "Ourg megahitter": {"White oak": 20, "Leather scraps": 20, "Orthenglass": 26, "Malachite green": 22},
+    "Ourg tower/goblin cower shield": {"Mark of the Kyzaj": 20, "Third Age iron": 26, "Leather scraps": 22, "White oak": 20},
+    "Pasaha": {"Felt": 40, "Goldrune": 38},
+    "Patera bowl": {"Keramos": 36, "Goldrune": 30, "Sapphire": 1},
+    "Peacocking parasol": {"Armadylean yellow": 22, "Samite silk": 30, "White oak": 20},
+    "Personal totem": {"Orgone": 48, "Carbon black": 26, "Compass rose": 26},
+    "Pontifex censer": {"Third Age iron": 20, "Ancient vis": 20, "Goldrune": 32, "Dragonstone": 1},
+    "Pontifex crozier": {"Imperial steel": 20, "Zarosian insignia": 20, "Goldrune": 32},
+    "Pontifex Maximus figurine": {"Zarosian insignia": 24, "Ancient vis": 16, "Goldrune": 28, "Dragonstone": 1},
+    "Pontifex mitre": {"Samite silk": 32, "Ancient vis": 20, "Zarosian insignia": 20},
+    "Pontifex signet ring": {"Third Age iron": 16, "Goldrune": 18, "Ancient vis": 22, "Dragonstone": 1},
+    "Portable phylactery": {"Imperial steel": 48, "Blood of Orcus": 36, "Ancient vis": 20},
+    "Praetorian hood": {"Ancient vis": 36, "Samite silk": 48, "Zarosian insignia": 40, "Death rune": 30},
+    "Praetorian robes": {"Ancient vis": 30, "Samite silk": 54, "Zarosian insignia": 40, "Death rune": 50},
+    "Praetorian staff": {"Imperial steel": 36, "Ancient vis": 58, "Zarosian insignia": 30, "Death rune": 100},
+    "Primis Elementis standard": {"Samite silk": 16, "Third Age iron": 12},
+    "Protective goggles": {"Felt": 42, "Orthenglass": 52},
+    "Prototype godbow": {"Aetherium alloy": 50, "Quintessence": 34, "Wings of War": 34},
+    "Prototype godstaff": {"Aetherium alloy": 50, "Quintessence": 34, "Wings of War": 34},
+    "Prototype godsword": {"Aetherium alloy": 50, "Wings of War": 34, "Goldrune": 34},
+    "Prototype gravimeter": {"Quintessence": 34, "Leather scraps": 20, "Third Age iron": 26},
+    "Quintessence counter": {"Quintessence": 54, "Stormguard steel": 40, "White oak": 40},
+    "Rekeshuun war tether": {"Warforged bronze": 20, "Vulcanised rubber": 22, "Leather scraps": 26},
+    "Ritual bell": {"Goldrune": 40, "Compass rose": 38},
+    "Ritual dagger": {"Goldrune": 16, "Hellfire metal": 24, "Ruby": 1},
+    "Rod of Asclepius": {"White marble": 30, "Star of Saradomin": 24, "Goldrune": 26},
+    "Saragorgak star crown": {"Warforged bronze": 44, "Third Age iron": 34, "Star of Saradomin": 20},
+    "She-wolf trophy": {"Cadmium red": 18, "Animal furs": 28, "Chaotic brimstone": 26},
+    "Silver Dominion medal": {"Everlight silvthril": 36, "Star of Saradomin": 26, "Silver bar": 1},
+    "Singing bowl": {"Orgone": 60, "Dragon metal": 40},
+    "Songbird recorder": {"Stormguard steel": 44, "Orthenglass":36, "Diamond": 1},
+    "Spear of Annihilation": {"Vulcanised rubber": 500, "Malachite green": 500, "Goldrune": 500},
+    "Spherical astrolabe": {"Aetherium alloy": 46, "Armadylean yellow": 40, "Orthenglass": 48},
+    "Spiked dog collar": {"Third Age iron": 24, "Leather scraps": 24, "Chaotic brimstone": 16},
+    "Stormguard gerege": {"Stormguard steel": 36, "Wings of War": 28, "Goldrune":20},
+    "Talon-3 razor wing": {"Aetherium alloy": 40, "Wings of War": 34, "Rope": 1},
+    "Thorobshuun battle standard": {"Mark of the Kyzaj": 16, "Malachite green": 22, "White oak": 16, "Samite silk": 20},
+    "Toy glider": {"Stormguard steel": 36, "White oak": 30},
+    "Toy war golem": {"Third Age iron": 36, "White oak": 30, "Clockwork": 1},
+    "Trishula": {"Hellfire metal": 48, "Eye of Dagon": 30, "Third Age iron": 20},
+    "Tsutsaroth helm": {"Hellfire metal": 50, "Eye of Dagon": 40, "Goldrune": 40},
+    "Tsutsaroth pauldron": {"Hellfire metal": 40, "Goldrune": 50, "Eye of Dagon": 40},
+    "Tsutsaroth piercing": {"Hellfire metal": 44, "Chaotic brimstone": 30, "Cadmium red":24},
+    "Tsutsaroth urumi": {"Hellfire metal": 50, "Eye of Dagon": 40, "Third Age iron": 40},
+    "Vazara": {"Dragon metal": 30, "Compass rose": 28, "Goldrune": 28},
+    "Venator dagger": {"Third Age iron": 16, "Zarosian insignia": 12},
+    "Venator light crossbow": {"Third Age iron": 12, "Zarosian insignia": 16},
+    "Vigorem vial": {"Imperial steel": 54, "Ancient vis": 38, "Molten glass": 1},
+    "Virius trophy": {"Demonhide": 44, "White oak": 34, "Orthenglass": 34},
+    "Xiphos short sword": {"Everlight silvthril": 46, "Leather scraps": 46},
+    "Xolo hard hat": {"Goldrune": 54, "Dragon metal": 66},
+    "Xolo pickaxe": {"Goldrune": 36, "Dragon metal": 50, "Orgone": 34},
+    "Xolo shield": {"Goldrune": 52, "Orgone": 44, "Felt": 42},
+    "Xolo spear": {"Dragon metal": 74, "Orgone": 64},
+    "Yurkolgokh stink grenade": {"Yu'biusk clay": 38, "Vulcanised rubber": 36, "Weapon poison (3)": 1},
+    "Zaros effigy": {"Samite silk": 8, "White oak": 10, "Zarosian insignia": 12},
+    "Zarosian ewer": {"Third Age iron": 52, "Zarosian insignia": 30},
+    "Zarosian stein": {"Third Age iron": 52, "Imperial steel": 36, "Zarosian insignia": 30},
+    "Zarosian training dummy": {"Third Age iron": 16, "White oak": 14},
+    "Tetracompass": {
+        "Tetracompass piece (left)": 1,
+        "Tetracompass piece (right)": 1,
+        "Tetracompass piece (dial)": 1,
+        "Tetracompass piece (needle)": 1,
+        "Malachite green": 1,
+        "Cadmium red": 1,
+        "Cobalt blue": 1,
+        "Armadylean yellow": 1,
+        "Tyrian purple": 1
+    }
 }
-    elif artefact == "'Possession' metal sculpture":
-        materials_dict["Eye of Dagon"] += (quantity * 24)
-        materials_dict["Chaotic brimstone"] += (quantity * 30)
-        materials_dict["Third Age iron"] += (quantity * 44)
-
-    elif artefact == "'Prima Legio' painting":
-        materials_dict["White oak"] += (quantity * 20)
-        materials_dict["Samite silk"] += (quantity * 20)
-        materials_dict["Tyrian purple"] += (quantity * 74)
-        materials_dict["Zarosian insignia"] += (quantity * 20)
-
-    elif artefact == "'Raksha' idol":
-        materials_dict["Orgone"] += (quantity * 56)
-        materials_dict["Dragon metal"] += (quantity * 44)
-        materials_dict["Goldrune"] += (quantity * 40)
-
-    elif artefact == "'Smoke Cloud' spell scroll":
-        materials_dict["Vellum"] += (quantity * 40)
-        materials_dict["Ancient vis"] += (quantity * 20)
-        materials_dict["Blood of Orcus"] += (quantity * 32)
-
-    elif artefact == "'Solem in Umbra' painting":
-        materials_dict["Samite silk"] += (quantity * 8)
-        materials_dict["White oak"] += (quantity * 10)
-        materials_dict["Tyrian purple"] += (quantity * 14)
-
-    elif artefact == "'The Enlightened Soul' scroll":
-        materials_dict["Star of Saradomin"] += (quantity * 50)
-        materials_dict["Vellum"] += (quantity * 60)
-
-    elif artefact == "'The Eudoxian Elements' tablet":
-        materials_dict["White marble"] += (quantity * 60)
-        materials_dict["Goldrune"] += (quantity * 50)
-
-    elif artefact == "'The Lake of Fire' painting":
-        materials_dict["Samite silk"] += (quantity * 10)
-        materials_dict["White oak"] += (quantity * 10)
-        materials_dict["Vellum"] += (quantity * 10)
-        materials_dict["Cadmium red"] += (quantity * 34)
-
-    elif artefact == "'The Lord of Light' painting":
-        materials_dict["Cobalt blue"] += (quantity * 52)
-        materials_dict["White oak"] += (quantity * 16)
-        materials_dict["Samite silk"] += (quantity * 16)
-        materials_dict["Vellum"] += (quantity * 16)
-
-    elif artefact == "'The Pride of Padosan' painting":
-        materials_dict["Cobalt blue"] += (quantity * 52)
-        materials_dict["White oak"] += (quantity * 16)
-        materials_dict["Samite silk"] += (quantity * 16)
-        materials_dict["Vellum"] += (quantity * 16)
-
-    elif artefact == "'Torment' metal sculpture":
-        materials_dict["Eye of Dagon"] += (quantity * 20)
-        materials_dict["Third Age iron"] += (quantity * 20)
-        materials_dict["Hellfire metal"] += (quantity * 38)
-
-    elif artefact == "Amphora":
-        materials_dict["Everlight silvthril"] += (quantity * 34)
-        materials_dict["Keramos"] += (quantity * 46)
-
-    elif artefact == "Ancient globe":
-        materials_dict["White oak"] += (quantity * 20)
-        materials_dict["Tyrian purple"] += (quantity * 54)
-        materials_dict["Ancient vis"] += (quantity * 60)
-
-    elif artefact == "Ancient magic tablet":
-        materials_dict["Ancient vis"] += (quantity * 40)
-        materials_dict["Blood of Orcus"] += (quantity * 64)
-
-    elif artefact == "Ancient timepiece":
-        materials_dict["Goldrune"] += (quantity * 12)
-        materials_dict["Imperial steel"] += (quantity * 16)
-        materials_dict["Ancient vis"] += (quantity * 18)
-
-    elif artefact == "Avian song-egg player":
-        materials_dict["Stormguard steel"] += (quantity * 36)
-        materials_dict["Armadylean yellow"] += (quantity * 32)
-        materials_dict["Diamond"] += (quantity * 1)
-
-    elif artefact == "Aviansie dreamcoat":
-        materials_dict["Armadylean yellow"] += (quantity * 20)
-        materials_dict["Samite silk"] += (quantity * 30)
-        materials_dict["Animal furs"] += (quantity * 22)
-
-    elif artefact == "Battle plans":
-        materials_dict["Vellum"] += (quantity * 40)
-        materials_dict["Tyrian purple"] += (quantity * 60)
-        materials_dict["Ancient vis"] += (quantity * 34)
-
-    elif artefact == "Beastkeeper helm":
-        materials_dict["Warforged bronze"] += (quantity * 16)
-        materials_dict["Vulcanised rubber"] += (quantity * 24)
-        materials_dict["Animal furs"] += (quantity * 20)
-        materials_dict["Fossilised bone"] += (quantity * 24)
-
-    elif artefact == "Blackfire lance":
-        materials_dict["Aetherium alloy"] += (quantity * 50)
-        materials_dict["Quintessence"] += (quantity * 46)
-
-    elif artefact == "Branding iron":
-        materials_dict["Third Age iron"] += (quantity * 14)
-        materials_dict["Eye of Dagon"] += (quantity * 12)
-        materials_dict["Hellfire metal"] += (quantity * 20)
-
-    elif artefact == "Bronze Dominion medal":
-        materials_dict["Everlight silvthril"] += (quantity * 36)
-        materials_dict["Star of Saradomin"] += (quantity * 26)
-        materials_dict["Bronze bar"] += (quantity * 1)
-
-    elif artefact == "Centurion's dress sword":
-        materials_dict["Imperial iron"] += (quantity * 5)
-        materials_dict["Purpleheart wood"] += (quantity * 5)
-
-    elif artefact == "Centurion's seal":
-        materials_dict["Third Age iron"] += (quantity * 6)
-        materials_dict["Zarosian insignia"] += (quantity * 2)
-
-    elif artefact == "Ceremonial dragonkin device":
-        materials_dict["Orthenglass"] += (quantity * 66)
-
-    elif artefact == "Ceremonial dragonkin tablet":
-        materials_dict["Orthenglass"] += (quantity * 79)
-
-    elif artefact == "Ceremonial mace":
-        materials_dict["Imperial steel"] += (quantity * 20)
-        materials_dict["Third Age iron"] += (quantity * 20)
-        materials_dict["Goldrune"] += (quantity * 28)
-
-    elif artefact == "Ceremonial plume":
-        materials_dict["Armadylean yellow"] += (quantity * 38)
-        materials_dict["Goldrune"] += (quantity * 34)
-        materials_dict["Phoenix feather"] += (quantity * 1)
-
-    elif artefact == "Ceremonial unicorn ornament":
-        materials_dict["Keramos"] += (quantity * 26)
-        materials_dict["Cobalt blue"] += (quantity * 20)
-
-    elif artefact == "Ceremonial unicorn saddle":
-        materials_dict["Leather scraps"] += (quantity * 24)
-        materials_dict["Cobalt blue"] += (quantity * 22)
-
-    elif artefact == "Chaos Elemental trophy":
-        materials_dict["Chaotic brimstone"] += (quantity * 52)
-        materials_dict["White oak"] += (quantity * 30)
-        materials_dict["Hellfire metal"] += (quantity * 30)
-
-    elif artefact == "Chaos star":
-        materials_dict["Chaotic brimstone"] += (quantity * 28)
-        materials_dict["Hellfire metal"] += (quantity * 36)
-
-    elif artefact == "Chuluu stone":
-        materials_dict["Aetherium alloy"] += (quantity * 40)
-        materials_dict["Quintessence"] += (quantity * 30)
-        materials_dict["Soapstone"] += (quantity * 40)
-        materials_dict["Goldrune"] += (quantity * 24)
-
-    elif artefact == "Crest of Dagon":
-        materials_dict["Goldrune"] += (quantity * 14)
-        materials_dict["Orthenglass"] += (quantity * 18)
-
-    elif artefact == "Dayguard shield":
-        materials_dict["Stormguard steel"] += (quantity * 36)
-        materials_dict["Wings of War"] += (quantity * 28)
-        materials_dict["White oak"] += (quantity * 20)
-
-    elif artefact == "Death mask":
-        materials_dict["Orgone"] += (quantity * 56)
-        materials_dict["Soapstone"] += (quantity * 34)
-
-    elif artefact == "Decorative vase":
-        materials_dict["White marble"] += (quantity * 36)
-        materials_dict["Cobalt blue"] += (quantity * 30)
-
-    elif artefact == "Dominarian device":
-        materials_dict["Everlight silvthril"] += (quantity * 30)
-        materials_dict["Keramos"] += (quantity * 22)
-        materials_dict["Third Age iron"] += (quantity * 22)
-        materials_dict["Clockwork"] += (quantity * 1)
-
-    elif artefact == "Dominion discus":
-        materials_dict["Keramos"] += (quantity * 34)
-        materials_dict["Star of Saradomin"] += (quantity * 28)
-
-    elif artefact == "Dominion javelin":
-        materials_dict["Keramos"] += (quantity * 32)
-        materials_dict["Third Age iron"] += (quantity * 30)
-
-    elif artefact == "Dominion pelte shield":
-        materials_dict["Star of Saradomin"] += (quantity * 34)
-        materials_dict["Samite silk"] += (quantity * 28)
-
-    elif artefact == "Dominion torch":
-        materials_dict["Goldrune"] += (quantity * 12)
-        materials_dict["Orthenglass"] += (quantity * 12)
-        materials_dict["Everlight silvthril"] += (quantity * 20)
-        materials_dict["Star of Saradomin"] += (quantity * 18)
-
-    elif artefact == "Dorgeshuun spear":
-        materials_dict["Warforged bronze"] += (quantity * 50)
-        materials_dict["White oak"] += (quantity * 42)
-
-    elif artefact == "Doru spear":
-        materials_dict["Everlight silvthril"] += (quantity * 70)
-        materials_dict["White oak"] += (quantity * 62)
-
-    elif artefact == "Dragon burner":
-        materials_dict["Dragon metal"] += (quantity * 52)
-        materials_dict["Orgone"] += (quantity * 42)
-
-    elif artefact == "Dragon scalpel":
-        materials_dict["Dragon metal"] += (quantity * 52)
-        materials_dict["Felt"] += (quantity * 42)
-
-    elif artefact == "Dragonkin calendar":
-        materials_dict["Orgone"] += (quantity * 34)
-        materials_dict["Carbon black"] += (quantity * 28)
-        materials_dict["Compass rose"] += (quantity * 28)
-
-    elif artefact == "Dragonkin staff":
-        materials_dict["Orgone"] += (quantity * 56)
-        materials_dict["Compass rose"] += (quantity * 34)
-
-    elif artefact == "Drogokishuun hook sword":
-        materials_dict["Warforged bronze"] += (quantity * 44)
-        materials_dict["Malachite green"] += (quantity * 36)
-        materials_dict["Fossilised bone"] += (quantity * 32)
-
-    elif artefact == "Ekeleshuun blinder mask":
-        materials_dict["Vulcanised rubber"] += (quantity * 24)
-        materials_dict["Malachite green"] += (quantity * 20)
-        materials_dict["Vellum"] += (quantity * 24)
-
-    elif artefact == "Everlight harp":
-        materials_dict["Everlight silvthril"] += (quantity * 30)
-        materials_dict["White oak"] += (quantity * 22)
-
-    elif artefact == "Everlight trumpet":
-        materials_dict["Everlight silvthril"] += (quantity * 28)
-        materials_dict["Goldrune"] += (quantity * 24)
-
-    elif artefact == "Everlight violin":
-        materials_dict["Star of Saradomin"] += (quantity * 16)
-        materials_dict["White oak"] += (quantity * 20)
-        materials_dict["Samite silk"] += (quantity * 16)
-
-    elif artefact == "Fishing trident":
-        materials_dict["Star of Saradomin"] += (quantity * 22)
-        materials_dict["Third Age iron"] += (quantity * 30)
-        materials_dict["Goldrune"] += (quantity * 22)
-
-    elif artefact == "Flat cap":
-        materials_dict["Armadylean yellow"] += (quantity * 60)
-        materials_dict["Samite silk"] += (quantity * 54)
-
-    elif artefact == "Folded-arm figurine (female)":
-        materials_dict["White marble"] += (quantity * 30)
-        materials_dict["Goldrune"] += (quantity * 24)
-
-    elif artefact == "Folded-arm figurine (male)":
-        materials_dict["White marble"] += (quantity * 30)
-        materials_dict["Goldrune"] += (quantity * 24)
-
-    elif artefact == "Garagorshuun anchor":
-        materials_dict["Warforged bronze"] += (quantity * 32)
-        materials_dict["Mark of the Kyzaj"] += (quantity * 26)
-        materials_dict["Third Age iron"] += (quantity * 30)
-
-    elif artefact == "Gold dish":
-        materials_dict["Goldrune"] += (quantity * 86)
-        materials_dict["Dragon metal"] += (quantity * 54)
-
-    elif artefact == "Golem heart":
-        materials_dict["Aetherium alloy"] += (quantity * 34)
-        materials_dict["Quintessence"] += (quantity * 24)
-        materials_dict["Orthenglass"] += (quantity * 16)
-        materials_dict["Soapstone"] += (quantity * 16)
-
-    elif artefact == "Golem instruction":
-        materials_dict["Quintessence"] += (quantity * 46)
-        materials_dict["Vellum"] += (quantity * 44)
-        materials_dict["Black mushroom ink"] += (quantity * 1)
-
-    elif artefact == "Greater demon mask":
-        materials_dict["Third Age iron"] += (quantity * 6)
-        materials_dict["Leather scraps"] += (quantity * 6)
-        materials_dict["Chaotic brimstone"] += (quantity * 8)
-        materials_dict["Demonhide"] += (quantity * 12)
-
-    elif artefact == "Hallowed lantern":
-        materials_dict["Third Age iron"] += (quantity * 20)
-        materials_dict["Keramos"] += (quantity * 24)
-        materials_dict["White candle"] += (quantity * 1)
-
-    elif artefact == "Hawkeye lens multi-vision scope":
-        materials_dict["Stormguard steel"] += (quantity * 40)
-        materials_dict["Orthenglass"] += (quantity * 34)
-
-    elif artefact == "Hellfire haladie":
-        materials_dict["Hellfire metal"] += (quantity * 44)
-        materials_dict["Third Age iron"] += (quantity * 26)
-        materials_dict["Leather scraps"] += (quantity * 20)
-
-    elif artefact == "Hellfire katar":
-        materials_dict["Hellfire metal"] += (quantity * 50)
-        materials_dict["Leather scraps"] += (quantity * 40)
-
-    elif artefact == "Hellfire zaghnal":
-        materials_dict["Hellfire metal"] += (quantity * 38)
-        materials_dict["White oak"] += (quantity * 26)
-        materials_dict["Orthenglass"] += (quantity * 26)
-
-    elif artefact == "High priest crozier":
-        materials_dict["Mark of the Kyzaj"] += (quantity * 26)
-        materials_dict["Malachite green"] += (quantity * 24)
-        materials_dict["Goldrune"] += (quantity * 28)
-
-    elif artefact == "High priest mitre":
-        materials_dict["Mark of the Kyzaj"] += (quantity * 26)
-        materials_dict["Malachite green"] += (quantity * 24)
-        materials_dict["Samite silk"] += (quantity * 28)
-
-    elif artefact == "High priest orb":
-        materials_dict["Mark of the Kyzaj"] += (quantity * 26)
-        materials_dict["Malachite green"] += (quantity * 24)
-        materials_dict["Goldrune"] += (quantity * 28)
-
-    elif artefact == "Hobgoblin mansticker":
-        materials_dict["Warforged bronze"] += (quantity * 66)
-        materials_dict["Fossilised bone"] += (quantity * 46)
-
-    elif artefact == "Hookah pipe":
-        materials_dict["Third Age iron"] += (quantity * 10)
-        materials_dict["Goldrune"] += (quantity * 12)
-        materials_dict["Orthenglass"] += (quantity * 8)
-
-    elif artefact == "Horogothgar cooking pot":
-        materials_dict["Yu'biusk clay"] += (quantity * 60)
-        materials_dict["Malachite green"] += (quantity * 38)
-        materials_dict["Soapstone"] += (quantity * 40)
-
-    elif artefact == "Huzamogaarb chaos crown":
-        materials_dict["Warforged bronze"] += (quantity * 44)
-        materials_dict["Third Age iron"] += (quantity * 34)
-        materials_dict["Eye of Dagon"] += (quantity * 20)
-
-    elif artefact == "Idithuun horn ring":
-        materials_dict["Yu'biusk clay"] += (quantity * 40)
-        materials_dict["Vulcanised rubber"] += (quantity * 44)
-
-    elif artefact == "Ikovian gerege":
-        materials_dict["Third Age iron"] += (quantity * 36)
-        materials_dict["Wings of War"] += (quantity * 30)
-
-    elif artefact == "Imp mask":
-        materials_dict["Leather scraps"] += (quantity * 10)
-        materials_dict["Chaotic brimstone"] += (quantity * 10)
-        materials_dict["Demonhide"] += (quantity * 12)
-
-    elif artefact == "Kal-i-kra chieftain crown":
-        materials_dict["Yu'biusk clay"] += (quantity * 66)
-        materials_dict["Animal furs"] += (quantity * 60)
-
-    elif artefact == "Kal-i-kra mace":
-        materials_dict["Vulcanised rubber"] += (quantity * 42)
-        materials_dict["Third Age iron"] += (quantity * 44)
-        materials_dict["Fossilised bone"] += (quantity * 40)
-
-    elif artefact == "Kal-i-kra warhorn":
-        materials_dict["Vulcanised rubber"] += (quantity * 44)
-        materials_dict["Fossilised bone"] += (quantity * 42)
-        materials_dict["Animal furs"] += (quantity * 40)
-
-    elif artefact == "Kantharos cup":
-        materials_dict["Everlight silvthril"] += (quantity * 30)
-        materials_dict["Orthenglass"] += (quantity * 36)
-        materials_dict["Sapphire"] += (quantity * 1)
-
-    elif artefact == "Keshik drum":
-        materials_dict["Wings of War"] += (quantity * 16)
-        materials_dict["Animal furs"] += (quantity * 16)
-        materials_dict["White oak"] += (quantity * 20)
-        materials_dict["Leather scraps"] += (quantity * 16)
-
-    elif artefact == "Kilaya":
-        materials_dict["Dragon metal"] += (quantity * 46)
-        materials_dict["Compass rose"] += (quantity * 40)
-
-    elif artefact == "Kontos lance":
-        materials_dict["Everlight silvthril"] += (quantity * 70)
-        materials_dict["Samite silk"] += (quantity * 62)
-
-    elif artefact == "Kopis dagger":
-        materials_dict["Everlight silvthril"] += (quantity * 50)
-        materials_dict["Leather scraps"] += (quantity * 42)
-
-    elif artefact == "Larupia trophy":
-        materials_dict["Cadmium red"] += (quantity * 18)
-        materials_dict["Animal furs"] += (quantity * 28)
-        materials_dict["Orthenglass"] += (quantity * 26)
-
-    elif artefact == "Legatus Maximus figurine":
-        materials_dict["Goldrune"] += (quantity * 8)
-        materials_dict["Zarosian insignia"] += (quantity * 14)
-        materials_dict["Ancient vis"] += (quantity * 10)
-
-    elif artefact == "Legatus pendant":
-        materials_dict["Third Age iron"] += (quantity * 16)
-        materials_dict["Goldrune"] += (quantity * 18)
-        materials_dict["Ancient vis"] += (quantity * 12)
-        materials_dict["Dragonstone"] += (quantity * 1)
-
-    elif artefact == "Legionary gladius":
-        materials_dict["Third Age iron"] += (quantity * 10)
-        materials_dict["Zarosian insignia"] += (quantity * 6)
-        materials_dict["Imperial steel"] += (quantity * 12)
-
-    elif artefact == "Legionary square shield":
-        materials_dict["Third Age iron"] += (quantity * 8)
-        materials_dict["Zarosian insignia"] += (quantity * 8)
-        materials_dict["Imperial steel"] += (quantity * 12)
-
-    elif artefact == "Lesser demon mask":
-        materials_dict["Leather scraps"] += (quantity * 6)
-        materials_dict["Chaotic brimstone"] += (quantity * 8)
-        materials_dict["Demonhide"] += (quantity * 12)
-        materials_dict["Cadmium red"] += (quantity * 6)
-
-    elif artefact == "Lingam stone":
-        materials_dict["Orgone"] += (quantity * 44)
-        materials_dict["Carbon black"] += (quantity * 30)
-        materials_dict["Compass rose"] += (quantity * 32)
-
-    elif artefact == "Lion trophy":
-        materials_dict["Cadmium red"] += (quantity * 18)
-        materials_dict["Animal furs"] += (quantity * 28)
-        materials_dict["White oak"] += (quantity * 26)
-
-    elif artefact == "Manacles":
-        materials_dict["Third Age iron"] += (quantity * 14)
-        materials_dict["Chaotic brimstone"] += (quantity * 18)
-        materials_dict["Eye of Dagon"] += (quantity * 14)
-
-    elif artefact == "Master control":
-        materials_dict["Orgone"] += (quantity * 30)
-        materials_dict["Carbon black"] += (quantity * 32)
-        materials_dict["Compass rose"] += (quantity * 44)
-
-    elif artefact == "Meditation pipe":
-        materials_dict["Orgone"] += (quantity * 60)
-        materials_dict["Dragon metal"] += (quantity * 40)
-
-    elif artefact == "Morin khuur":
-        materials_dict["Armadylean yellow"] += (quantity * 36)
-        materials_dict["White oak"] += (quantity * 32)
-
-    elif artefact == "Narogoshuun 'Hob-da-Gob' ball":
-        materials_dict["Vulcanised rubber"] += (quantity * 36)
-        materials_dict["Mark of the Kyzaj"] += (quantity * 32)
-
-    elif artefact == "Necromantic focus":
-        materials_dict["Imperial steel"] += (quantity * 20)
-        materials_dict["Blood of Orcus"] += (quantity * 26)
-        materials_dict["Ancient vis"] += (quantity * 30)
-
-    elif artefact == "Night owl flight goggles":
-        materials_dict["Armadylean yellow"] += (quantity * 44)
-        materials_dict["Leather scraps"] += (quantity * 40)
-        materials_dict["Orthenglass"] += (quantity * 30)
-
-    elif artefact == "Nightguard shield":
-        materials_dict["Stormguard steel"] += (quantity * 30)
-        materials_dict["Wings of War"] += (quantity * 36)
-        materials_dict["White oak"] += (quantity * 30)
-
-    elif artefact == "Ogre Kyzaj axe":
-        materials_dict["Warforged bronze"] += (quantity * 28)
-        materials_dict["Mark of the Kyzaj"] += (quantity * 20)
-        materials_dict["Fossilised bone"] += (quantity * 24)
-
-    elif artefact == "Opulent wine goblet":
-        materials_dict["Third Age iron"] += (quantity * 14)
-        materials_dict["Goldrune"] += (quantity * 16)
-
-    elif artefact == "Order of Dis robes":
-        materials_dict["Samite silk"] += (quantity * 16)
-        materials_dict["Cadmium red"] += (quantity * 10)
-        materials_dict["Eye of Dagon"] += (quantity * 14)
-
-    elif artefact == "Ork cleaver sword":
-        materials_dict["Warforged bronze"] += (quantity * 36)
-        materials_dict["Fossilised bone"] += (quantity * 36)
-
-    elif artefact == "Orthenglass flask":
-        materials_dict["Dragon metal"] += (quantity * 34)
-        materials_dict["Orthenglass"] += (quantity * 60)
-
-    elif artefact == "Ourg megahitter":
-        materials_dict["White oak"] += (quantity * 20)
-        materials_dict["Leather scraps"] += (quantity * 20)
-        materials_dict["Orthenglass"] += (quantity * 26)
-        materials_dict["Malachite green"] += (quantity * 22)
-
-    elif artefact == "Ourg tower/goblin cower shield":
-        materials_dict["Mark of the Kyzaj"] += (quantity * 20)
-        materials_dict["Third Age iron"] += (quantity * 26)
-        materials_dict["Leather scraps"] += (quantity * 22)
-        materials_dict["White oak"] += (quantity * 20)
-
-    elif artefact == "Pasaha":
-        materials_dict["Felt"] += (quantity * 40)
-        materials_dict["Goldrune"] += (quantity * 38)
-
-    elif artefact == "Patera bowl":
-        materials_dict["Keramos"] += (quantity * 36)
-        materials_dict["Goldrune"] += (quantity * 30)
-        materials_dict["Sapphire"] += (quantity * 1)
-
-    elif artefact == "Peacocking parasol":
-        materials_dict["Armadylean yellow"] += (quantity * 22)
-        materials_dict["Samite silk"] += (quantity * 30)
-        materials_dict["White oak"] += (quantity * 20)
-
-    elif artefact == "Personal totem":
-        materials_dict["Orgone"] += (quantity * 48)
-        materials_dict["Carbon black"] += (quantity * 26)
-        materials_dict["Compass rose"] += (quantity * 26)
-
-    elif artefact == "Pontifex censer":
-        materials_dict["Third Age iron"] += (quantity * 20)
-        materials_dict["Ancient vis"] += (quantity * 20)
-        materials_dict["Goldrune"] += (quantity * 32)
-        materials_dict["Dragonstone"] += (quantity * 1)
-
-    elif artefact == "Pontifex crozier":
-        materials_dict["Imperial steel"] += (quantity * 20)
-        materials_dict["Zarosian insignia"] += (quantity * 20)
-        materials_dict["Goldrune"] += (quantity * 32)
-
-    elif artefact == "Pontifex Maximus figurine":
-        materials_dict["Zarosian insignia"] += (quantity * 24)
-        materials_dict["Ancient vis"] += (quantity * 16)
-        materials_dict["Goldrune"] += (quantity * 28)
-        materials_dict["Dragonstone"] += (quantity * 1)
-
-    elif artefact == "Pontifex mitre":
-        materials_dict["Samite silk"] += (quantity * 32)
-        materials_dict["Ancient vis"] += (quantity * 20)
-        materials_dict["Zarosian insignia"] += (quantity * 20)
-
-    elif artefact == "Pontifex signet ring":
-        materials_dict["Third Age iron"] += (quantity * 16)
-        materials_dict["Goldrune"] += (quantity * 18)
-        materials_dict["Ancient vis"] += (quantity * 22)
-        materials_dict["Dragonstone"] += (quantity * 1)
-
-    elif artefact == "Portable phylactery":
-        materials_dict["Imperial steel"] += (quantity * 48)
-        materials_dict["Blood of Orcus"] += (quantity * 36)
-        materials_dict["Ancient vis"] += (quantity * 20)
-
-    elif artefact == "Praetorian hood":
-        materials_dict["Ancient vis"] += (quantity * 36)
-        materials_dict["Samite silk"] += (quantity * 48)
-        materials_dict["Zarosian insignia"] += (quantity * 40)
-        materials_dict["Death rune"] += (quantity * 30)
-
-    elif artefact == "Praetorian robes":
-        materials_dict["Ancient vis"] += (quantity * 30)
-        materials_dict["Samite silk"] += (quantity * 54)
-        materials_dict["Zarosian insignia"] += (quantity * 40)
-        materials_dict["Death rune"] += (quantity * 50)
-
-    elif artefact == "Praetorian staff":
-        materials_dict["Imperial steel"] += (quantity * 36)
-        materials_dict["Ancient vis"] += (quantity * 58)
-        materials_dict["Zarosian insignia"] += (quantity * 30)
-        materials_dict["Death rune"] += (quantity * 100)
-
-    elif artefact == "Primis Elementis standard":
-        materials_dict["Samite silk"] += (quantity * 16)
-        materials_dict["Third Age iron"] += (quantity * 12)
-
-    elif artefact == "Protective goggles":
-        materials_dict["Felt"] += (quantity * 42)
-        materials_dict["Orthenglass"] += (quantity * 52)
-
-    elif artefact == "Prototype godbow":
-        materials_dict["Aetherium alloy"] += (quantity * 50)
-        materials_dict["Quintessence"] += (quantity * 34)
-        materials_dict["Wings of War"] += (quantity * 34)
-
-    elif artefact == "Prototype godstaff":
-        materials_dict["Aetherium alloy"] += (quantity * 50)
-        materials_dict["Quintessence"] += (quantity * 34)
-        materials_dict["Wings of War"] += (quantity * 34)
-
-    elif artefact == "Prototype godsword":
-        materials_dict["Aetherium alloy"] += (quantity * 50)
-        materials_dict["Wings of War"] += (quantity * 34)
-        materials_dict["Goldrune"] += (quantity * 34)
-
-    elif artefact == "Prototype gravimeter":
-        materials_dict["Quintessence"] += (quantity * 34)
-        materials_dict["Leather scraps"] += (quantity * 20)
-        materials_dict["Third Age iron"] += (quantity * 26)
-
-    elif artefact == "Quintessence counter":
-        materials_dict["Quintessence"] += (quantity * 54)
-        materials_dict["Stormguard steel"] += (quantity * 40)
-        materials_dict["White oak"] += (quantity * 40)
-
-    elif artefact == "Rekeshuun war tether":
-        materials_dict["Warforged bronze"] += (quantity * 20)
-        materials_dict["Vulcanised rubber"] += (quantity * 22)
-        materials_dict["Leather scraps"] += (quantity * 26)
-
-    elif artefact == "Ritual bell":
-        materials_dict["Goldrune"] += (quantity * 40)
-        materials_dict["Compass rose"] += (quantity * 38)
-
-    elif artefact == "Ritual dagger":
-        materials_dict["Goldrune"] += (quantity * 16)
-        materials_dict["Hellfire metal"] += (quantity * 24)
-        materials_dict["Ruby"] += (quantity * 1)
-
-    elif artefact == "Rod of Asclepius":
-        materials_dict["White marble"] += (quantity * 30)
-        materials_dict["Star of Saradomin"] += (quantity * 24)
-        materials_dict["Goldrune"] += (quantity * 26)
-
-    elif artefact == "Saragorgak star crown":
-        materials_dict["Warforged bronze"] += (quantity * 44)
-        materials_dict["Third Age iron"] += (quantity * 34)
-        materials_dict["Star of Saradomin"] += (quantity * 20)
-
-    elif artefact == "She-wolf trophy":
-        materials_dict["Chaotic brimstone"] += (quantity * 26)
-        materials_dict["Cadmium red"] += (quantity * 18)
-        materials_dict["Animal furs"] += (quantity * 28)
-
-    elif artefact == "Silver Dominion medal":
-        materials_dict["Everlight silvthril"] += (quantity * 36)
-        materials_dict["Star of Saradomin"] += (quantity * 26)
-        materials_dict["Silver bar"] += (quantity * 1)
-
-    elif artefact == "Singing bowl":
-        materials_dict["Orgone"] += (quantity * 60)
-        materials_dict["Dragon metal"] += (quantity * 40)
-
-    elif artefact == "Songbird recorder":
-        materials_dict["Stormguard steel"] += (quantity * 44)
-        materials_dict["Orthenglass"] += (quantity * 36)
-        materials_dict["Diamond"] += (quantity * 1)
-
-    elif artefact == "Spear of Annihilation":
-        materials_dict["Vulcanised rubber"] += (quantity * 500)
-        materials_dict["Malachite green"] += (quantity * 500)
-        materials_dict["Goldrune"] += (quantity * 500)
-
-    elif artefact == "Spherical astrolabe":
-        materials_dict["Aetherium alloy"] += (quantity * 46)
-        materials_dict["Armadylean yellow"] += (quantity * 40)
-        materials_dict["Orthenglass"] += (quantity * 48)
-
-    elif artefact == "Spiked dog collar":
-        materials_dict["Third Age iron"] += (quantity * 24)
-        materials_dict["Leather scraps"] += (quantity * 24)
-        materials_dict["Chaotic brimstone"] += (quantity * 16)
-
-    elif artefact == "Stormguard gerege":
-        materials_dict["Stormguard steel"] += (quantity * 36)
-        materials_dict["Wings of War"] += (quantity * 28)
-        materials_dict["Goldrune"] += (quantity * 20)
-
-    elif artefact == "Talon-3 razor wing":
-        materials_dict["Aetherium alloy"] += (quantity * 40)
-        materials_dict["Wings of War"] += (quantity * 34)
-        materials_dict["Rope"] += (quantity * 1)
-
-    elif artefact == "Tetracompass":
-        materials_dict["Tetracompass piece (left)"] += (quantity * 1)
-        materials_dict["Tetracompass piece (right)"] += (quantity * 1)
-        materials_dict["Tetracompass piece (dial)"] += (quantity * 1)
-        materials_dict["Tetracompass piece (needle)"] += (quantity * 1)
-        materials_dict["Malachite green"] += (quantity * 30)
-        materials_dict["Cadmium red"] += (quantity * 30)
-        materials_dict["Cobalt blue"] += (quantity * 30)
-        materials_dict["Armadylean yellow"] += (quantity * 30)
-        materials_dict["Tyrian purple"] += (quantity * 30)
-
-    elif artefact == "Thorobshuun battle standard":
-        materials_dict["Mark of the Kyzaj"] += (quantity * 16)
-        materials_dict["Malachite green"] += (quantity * 22)
-        materials_dict["White oak"] += (quantity * 16)
-        materials_dict["Samite silk"] += (quantity * 20)
-
-    elif artefact == "Toy glider":
-        materials_dict["Stormguard steel"] += (quantity * 36)
-        materials_dict["White oak"] += (quantity * 30)
-
-    elif artefact == "Toy war golem":
-        materials_dict["Third Age iron"] += (quantity * 36)
-        materials_dict["White oak"] += (quantity * 30)
-        materials_dict["Clockwork"] += (quantity * 1)
-
-    elif artefact == "Trishula":
-        materials_dict["Hellfire metal"] += (quantity * 48)
-        materials_dict["Eye of Dagon"] += (quantity * 30)
-        materials_dict["Third Age iron"] += (quantity * 20)
-
-    elif artefact == "Tsutsaroth helm":
-        materials_dict["Hellfire metal"] += (quantity * 50)
-        materials_dict["Eye of Dagon"] += (quantity * 40)
-        materials_dict["Goldrune"] += (quantity * 40)
-
-    elif artefact == "Tsutsaroth pauldron":
-        materials_dict["Hellfire metal"] += (quantity * 40)
-        materials_dict["Goldrune"] += (quantity * 50)
-        materials_dict["Eye of Dagon"] += (quantity * 40)
-
-    elif artefact == "Tsutsaroth piercing":
-        materials_dict["Hellfire metal"] += (quantity * 44)
-        materials_dict["Chaotic brimstone"] += (quantity * 30)
-        materials_dict["Cadmium red"] += (quantity * 24)
-
-    elif artefact == "Tsutsaroth urumi":
-        materials_dict["Hellfire metal"] += (quantity * 50)
-        materials_dict["Eye of Dagon"] += (quantity * 40)
-        materials_dict["Third Age iron"] += (quantity * 40)
-
-    elif artefact == "Vazara":
-        materials_dict["Dragon metal"] += (quantity * 30)
-        materials_dict["Compass rose"] += (quantity * 28)
-        materials_dict["Goldrune"] += (quantity * 28)
-
-    elif artefact == "Venator dagger":
-        materials_dict["Third Age iron"] += (quantity * 16)
-        materials_dict["Zarosian insignia"] += (quantity * 12)
-
-    elif artefact == "Venator light crossbow":
-        materials_dict["Third Age iron"] += (quantity * 12)
-        materials_dict["Zarosian insignia"] += (quantity * 16)
-
-    elif artefact == "Vigorem vial":
-        materials_dict["Imperial steel"] += (quantity * 54)
-        materials_dict["Ancient vis"] += (quantity * 38)
-        materials_dict["Molten glass"] += (quantity * 1)
-
-    elif artefact == "Virius trophy":
-        materials_dict["Demonhide"] += (quantity * 44)
-        materials_dict["White oak"] += (quantity * 34)
-        materials_dict["Orthenglass"] += (quantity * 34)
-
-    elif artefact == "Xiphos short sword":
-        materials_dict["Everlight silvthril"] += (quantity * 46)
-        materials_dict["Leather scraps"] += (quantity * 46)
-
-    elif artefact == "Xolo hard hat":
-        materials_dict["Goldrune"] += (quantity * 54)
-        materials_dict["Dragon metal"] += (quantity * 66)
-
-    elif artefact == "Xolo pickaxe":
-        materials_dict["Goldrune"] += (quantity * 36)
-        materials_dict["Dragon metal"] += (quantity * 50)
-        materials_dict["Orgone"] += (quantity * 34)
-
-    elif artefact == "Xolo shield":
-        materials_dict["Goldrune"] += (quantity * 52)
-        materials_dict["Orgone"] += (quantity * 44)
-        materials_dict["Felt"] += (quantity * 42)
-
-    elif artefact == "Xolo spear":
-        materials_dict["Dragon metal"] += (quantity * 74)
-        materials_dict["Orgone"] += (quantity * 64)
-
-    elif artefact == "Yurkolgokh stink grenade":
-        materials_dict["Yu'biusk clay"] += (quantity * 38)
-        materials_dict["Vulcanised rubber"] += (quantity * 36)
-        materials_dict["Weapon poison (3)"] += (quantity * 1)
-
-    elif artefact == "Zaros effigy":
-        materials_dict["Samite silk"] += (quantity * 8)
-        materials_dict["White oak"] += (quantity * 10)
-        materials_dict["Zarosian insignia"] += (quantity * 12)
-
-    elif artefact == "Zarosian ewer":
-        materials_dict["Third Age iron"] += (quantity * 52)
-        materials_dict["Zarosian insignia"] += (quantity * 30)
-
-    elif artefact == "Zarosian stein":
-        materials_dict["Third Age iron"] += (quantity * 16)
-        materials_dict["Imperial steel"] += (quantity * 36)
-        materials_dict["Zarosian insignia"] += (quantity * 30)
-
-    elif artefact == "Zarosian training dummy":
-        materials_dict["Third Age iron"] += (quantity * 16)
-        materials_dict["White oak"] += (quantity * 14)
