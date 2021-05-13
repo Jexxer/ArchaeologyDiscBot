@@ -10,7 +10,10 @@ This bot only has two commands right now.
 
 ## In progress
 - ~~Cleaning up the HUGE elif block in artefact_list.py to an item dictionary.~~
-- Calculate the amount of experience that will be gained.
+- ~~Calculate the amount of experience that will be gained.~~
 
 ## To do:
-- Calculate the cost of materials
+- Display experience seperate from materials.
+- Create a way for users to enter items without having to be case sensitive.
+- Implement more features such as !asl lvl, and !asl collection.
+- Calculate the cost of materials (will need to learn api integration)
