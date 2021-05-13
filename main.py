@@ -20,9 +20,10 @@ async def on_message(message):
 
     # !asl help - Types a "How to" to the chat, should make this a Direct message in the future.
     if message.content.startswith('!asl help'):
-        await message.channel.send("""To use this bot, start your command with '!asl calc' followed by the number of 
-         artefacts you have, followed by the artefact you are referencing.\nExample: 
-         '!asl calc 12 Pontifex Maximus figurine'. NOTE: Artefact names ARE case sensitive, including quotes.""")
+        await message.channel.send("To use this bot, start your command with '!asl calc' followed by the number of "
+                                   "artefacts you have, followed by the artefact you are referencing.\nExample: '!asl "
+                                   "calc 12 Pontifex Maximus figurine'. NOTE: Artefact names ARE case sensitive, "
+                                   "including quotes.")
 
     # !asl calc - The meat of the program
     if message.content.startswith('!asl calc'):
@@ -83,4 +84,4 @@ async def on_message(message):
             artefact_list.materials_dict[material] = 0
 
 
-client.run("Enter you token here")
+client.run("ODQxMDk4NDQ4NTMxMDk1NTky.YJhz-A.aJ9ANoQ-Od2C0O7ktHb7lNTkBQs")
