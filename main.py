@@ -84,4 +84,4 @@ async def on_message(message):
             artefact_list.materials_dict[material] = 0
 
 
-client.run("ODQxMDk4NDQ4NTMxMDk1NTky.YJhz-A.7yq7YpiwI2JqfQsOL8KRog8F6wY")
+client.run("ENTER YOUR KEY HERE")
