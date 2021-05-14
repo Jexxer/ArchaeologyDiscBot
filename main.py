@@ -74,7 +74,7 @@ async def on_message(message):
             # If the material in the dictionary is not 0 it will add the material and quantity to the shopping list
             if artefact_list.materials_dict[material] != 0:
                 shopping_list = shopping_list + \
-                    f"{artefact_list.materials_dict[material]} {material}\n"
+                    f"{round(artefact_list.materials_dict[material], 2)} {material}\n"
 
         # Sends the shopping list to the channel in discord.
         await message.channel.send(shopping_list)
@@ -84,4 +84,4 @@ async def on_message(message):
             artefact_list.materials_dict[material] = 0
 
 
-client.run("ODQxMDk4NDQ4NTMxMDk1NTky.YJhz-A.aJ9ANoQ-Od2C0O7ktHb7lNTkBQs")
+client.run("ODQxMDk4NDQ4NTMxMDk1NTky.YJhz-A.7yq7YpiwI2JqfQsOL8KRog8F6wY")
