@@ -1,5 +1,3 @@
-
-
 def artefact_calc(quantity, artefact):
     for key in artefact_dict[artefact]:
         materials_dict[key] += (artefact_dict[artefact][key] * quantity)

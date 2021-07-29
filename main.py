@@ -4,7 +4,7 @@ import artefact_list
 
 client = discord.Client()
 
-
+# Testing git connection.
 # Logs the Bot in and prints a ready message to the console.
 @client.event
 async def on_ready():
